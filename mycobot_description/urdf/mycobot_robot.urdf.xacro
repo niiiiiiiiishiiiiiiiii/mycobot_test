@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!-- Open_Manipulator Chain -->
+<robot name="mycobot" xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <!-- Import all Gazebo-customization elements, including Gazebo colors -->
+  <xacro:include filename="$(find mycobot_description)/urdf/mycobot.gazebo.xacro" />
+
+  <!-- Import Transmission -->
+  <xacro:include filename="$(find mycobot_description)/urdf/mycobot.transmission.xacro" />
+
+  <!-- <gazebo>
+    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+    </plugin>
+  </gazebo> -->
+
+  <!-- Import URDF -->
+  <xacro:include filename="$(find mycobot_description)/urdf/mycobot.urdf.xacro" />
+
+  <!-- World -->
+  <link name="world"/>
+
+  <!-- World fixed joint-->
+  <joint name="world_fixed" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="world"/>
+    <child link="link1"/>
+  </joint>
+
+</robot>

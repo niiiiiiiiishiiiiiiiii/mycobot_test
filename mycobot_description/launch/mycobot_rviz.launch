@@ -1,0 +1,17 @@
+<launch>
+  <include file="$(find mycobot_description)/launch/mycobot_upload.launch"/>
+
+  <!-- Send joint values -->
+  <node pkg="joint_state_publisher_gui" type="joint_state_publisher_gui" name="joint_state_publisher">
+    <!-- <rosparam param="source_list" subst_value="true">["joint_states"]</rosparam> -->
+  </node>
+
+  <!-- Combine joint values to TF-->
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher">
+    <!-- <remap from="robot_description" to="robot_description" /> -->
+  </node>
+
+  <!-- Show in Rviz -->
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find mycobot_description)/rviz/mycobot.rviz" required="true"/>
+  <!-- <node name="rviz" pkg="rviz" type="rviz" required="true"/> -->
+</launch>

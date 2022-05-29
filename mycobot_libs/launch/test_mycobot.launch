@@ -1,0 +1,6 @@
+<launch>
+  <node name="test_mycobot" pkg="mycobot_libs" type="test_mycobot" output="screen">
+    <!-- <param name="test/timeout" value="20"/> -->
+    <rosparam command="load" file="$(find mycobot_libs)/config/test_mycobot.yaml"/>
+  </node>
+</launch>

@@ -1,0 +1,6 @@
+mycobot_device_info:
+  usb_port: '/dev/ttyUSB0'
+  baud_rate: 115200
+  timeout: 10
+  buffer_size: 200
+  speed: 80

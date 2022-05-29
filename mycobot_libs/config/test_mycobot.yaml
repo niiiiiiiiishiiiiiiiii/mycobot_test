@@ -1,0 +1,15 @@
+test:
+  usb_port: '/dev/ttyUSB0'
+  baud_rate: 115200
+  timeout: 20
+  buffer_size: 200
+  destination:
+    radians:
+      - 0.
+      - 0.
+      - 0.
+      - 0.
+      - 0.
+      - 0.
+    speed: 40
+

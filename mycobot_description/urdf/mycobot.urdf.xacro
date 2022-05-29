@@ -1,0 +1,222 @@
+<?xml version="1.0"?>
+<!-- <robot name="mycobot" xmlns:xacro="http://www.ros.org/wiki/xacro" > -->
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" >
+  
+  <xacro:property name="effort_limit" value="10.0" />
+  <xacro:property name="velocity_limit" value="1.0" />
+  <xacro:property name="M_PI" value="3.1415926" />
+
+  <link name="link1">
+    <visual>
+      <geometry>
+	     <!--- 0.0 0 -0.04  1.5708 3.14159-->
+       <mesh filename="package://mycobot_description/urdf/components/joint1.dae"/>
+      </geometry>
+      <origin xyz = "0.0 0 0" rpy = "0 0 ${-M_PI * 0.5}"/>
+    </visual>
+    <collision>
+      <geometry>
+	     <!--- 0.0 0 -0.04  1.5708 3.14159-->
+       <mesh filename="package://mycobot_description/urdf/components/joint1.dae"/>
+        </geometry>
+        <origin xyz = "0.0 0 0" rpy = "0 0 ${-M_PI * 0.5}"/>
+    </collision>
+    <inertial>
+      <origin xyz="0 0 0" rpy = "0 0 ${-M_PI * 0.5}"/>
+      <mass value="1.0" />
+      <inertia ixx="1.40176e-03" ixy="0.0" ixz="0.0"
+               iyy="1.40176e-03" iyz="0.0"
+               izz="2.00978e-03" />
+    </inertial>
+  </link>
+  
+  <joint name="joint1" type="revolute">
+    <axis xyz="0 0 1"/>
+    <limit effort = "${effort_limit}" lower = "${-M_PI}" upper = "${M_PI}" velocity = "${velocity_limit}"/>
+    <parent link="link1"/>
+    <child link="link2"/>
+    <origin xyz= "0 0 0.13156" rpy = "0 0 0"/>  
+  </joint>
+
+  <link name="link2">
+    <visual>
+      <geometry>
+       <mesh filename="package://mycobot_description/urdf/components/joint2.dae"/>
+      </geometry>
+      <origin xyz = "0.0 0 -0.06096" rpy = "0 0 ${-M_PI * 0.5}"/>
+    </visual>
+    <collision>
+     <geometry>
+       <mesh filename="package://mycobot_description/urdf/components/joint2.dae"/>
+      </geometry>
+      <origin xyz = "0.0 0 -0.06096" rpy = "0 0 ${-M_PI * 0.5}"/>
+    </collision>
+    <inertial>
+      <origin xyz="0 0 -0.06096" rpy = "0 0 ${-M_PI * 0.5}"/>
+      <mass value="1.0" />
+      <inertia ixx="6.6447e-04" ixy="0.0" ixz="0.0"
+               iyy="6.6447e-04" iyz="0.0"
+               izz="5.0245e-04" />
+    </inertial>
+  </link>
+
+  <joint name="joint2" type="revolute">
+    <axis xyz="0 0 1"/>
+    <limit effort = "${effort_limit}" lower = "${-M_PI}" upper = "${M_PI}" velocity = "${velocity_limit}"/>
+    <parent link="link2"/>
+    <child link="link3"/>
+    <origin xyz= "0 0 0" rpy = "0 ${M_PI * 0.5} ${-M_PI * 0.5}"/>  
+  </joint>
+
+  <link name="link3">
+    <visual>
+      <geometry>
+       <mesh filename="package://mycobot_description/urdf/components/joint3.dae"/>
+      </geometry>
+    <origin xyz = "0.0 0 0.03256" rpy = "0 ${-M_PI * 0.5} 0"/>
+    </visual>
+    <collision>
+      <geometry>
+       <mesh filename="package://mycobot_description/urdf/components/joint3.dae"/>
+      </geometry>
+      <origin xyz = "0.0 0 0.03256" rpy = "0 ${-M_PI * 0.5} 0"/>
+    </collision>
+    <inertial>
+      <origin xyz="0 0 0.03256" rpy = "0 ${-M_PI * 0.5} 0"/>
+      <mass value="1.0" />
+      <inertia ixx="1.2669e-03" ixy="0.0" ixz="0.0"
+               iyy="1.2669e-03" iyz="0.0"
+               izz="5.0245e-04" />
+    </inertial>
+  </link>
+
+  <joint name="joint3" type="revolute">
+    <axis xyz="0 0 1"/>
+    <limit effort = "${effort_limit}" lower = "${-M_PI}" upper = "${M_PI}" velocity = "${velocity_limit}"/>
+    <parent link="link3"/>
+    <child link="link4"/>
+    <origin xyz= "-0.1104 0 0" rpy = "0 0 0"/>  
+  </joint>
+
+  <link name="link4">
+    <visual>
+      <geometry>
+       <!--- 0.0 0 -0.04 -->
+       <mesh filename="package://mycobot_description/urdf/components/joint4.dae"/>
+      </geometry>
+      <origin xyz = "0.0 0 0.03056" rpy = "0 ${-M_PI * 0.5} 0"/>
+    </visual>
+    <collision>
+      <geometry>
+       <!--- 0.0 0 -0.04 -->
+       <mesh filename="package://mycobot_description/urdf/components/joint4.dae"/>
+      </geometry>
+      <origin xyz = "0.0 0 0.03056" rpy = "0 ${-M_PI * 0.5} 0"/>
+    </collision>
+    <inertial>
+      <origin xyz="0 0 0.03056" rpy = "0 ${-M_PI * 0.5} 0"/>
+      <mass value="1.0" />
+      <inertia ixx="1.01922e-03" ixy="0.0" ixz="0.0"
+               iyy="1.01922e-03" iyz="0.0"
+               izz="5.0245e-04" />
+    </inertial>
+  </link>
+
+  <joint name="joint4" type="revolute">
+    <axis xyz="0 0 1"/>
+    <limit effort = "${effort_limit}" lower = "${-M_PI}" upper = "${M_PI}" velocity = "${velocity_limit}"/>
+    <parent link="link4"/>
+    <child link="link5"/>
+    <origin xyz= "-0.096 0 0.06462" rpy = "0 0 ${-M_PI * 0.5}"/>  
+  </joint>
+
+  <link name="link5">
+    <visual>
+      <geometry>
+       <!--- 0.0 0 -0.04 -->
+       <mesh filename="package://mycobot_description/urdf/components/joint5.dae"/>
+      </geometry>
+    <origin xyz = "0.0 0 -0.03356" rpy = "${-M_PI * 0.5} 0 0"/>
+    </visual>
+    <collision>
+       <geometry>
+       <!--- 0.0 0 -0.04 -->
+       <mesh filename="package://mycobot_description/urdf/components/joint5.dae"/>
+      </geometry>
+      <origin xyz = "0.0 0 -0.03356" rpy = "${-M_PI * 0.5} 0 0"/>
+    </collision>
+    <inertial>
+      <origin xyz="0 0 0" rpy = "0 0 0"/>
+      <mass value="1.0" />
+      <inertia ixx="7.206e-04" ixy="0.0" ixz="0.0"
+               iyy="7.206e-04" iyz="0.0"
+               izz="5.0245e-04" />
+    </inertial>
+  </link>
+
+  <joint name="joint5" type="revolute">
+    <axis xyz="0 0 1"/>
+    <limit effort = "${effort_limit}" lower = "${-M_PI}" upper = "${M_PI}" velocity = "${velocity_limit}"/>
+    <parent link="link5"/>
+    <child link="link6"/>
+    <origin xyz= "0 -0.07318 0" rpy = "${M_PI * 0.5} ${-M_PI * 0.5} 0"/>  
+  </joint>
+
+  <link name="link6">
+    <visual>
+      <geometry>
+       <!--- 0.0 0 -0.04 -->
+       <mesh filename="package://mycobot_description/urdf/components/joint6.dae"/>
+      </geometry>
+    <origin xyz = "0 0.00 -0.038" rpy = "0 0 0"/>
+    </visual>
+    <collision>
+      <geometry>
+       <!--- 0.0 0 -0.04 -->
+       <mesh filename="package://mycobot_description/urdf/components/joint6.dae"/>
+      </geometry>
+    <origin xyz = "0 0.00 -0.038" rpy = "0 0 0"/>
+    </collision>
+    <inertial>
+      <origin xyz="0 0 -0.038" rpy = "0 0 0"/>
+      <mass value="1.0" />
+      <inertia ixx="4.9874e-04" ixy="0.0" ixz="0.0"
+               iyy="4.9874e-04" iyz="0.0"
+               izz="5.0245e-04" />
+    </inertial>
+  </link>
+
+  <joint name="joint6" type="revolute">
+    <axis xyz="0 0 1"/>
+    <limit effort = "${effort_limit}" lower = "${-M_PI}" upper = "${M_PI}" velocity = "${velocity_limit}"/>
+    <parent link="link6"/>
+    <child link="link7"/>
+    <origin xyz= "0 0.0456 0" rpy = "${-M_PI * 0.5} 0 0"/>  
+  </joint>
+
+  <link name="link7">
+    <visual>
+      <geometry>
+       <!--- 0.0 0 -0.04 -->
+       <mesh filename="package://mycobot_description/urdf/components/joint7.dae"/>
+      </geometry>
+    <origin xyz = "0.0 0 -0.012" rpy = "0 0 0"/>
+    </visual>
+    <collision>
+      <geometry>
+       <!--- 0.0 0 -0.04 -->
+       <mesh filename="package://mycobot_description/urdf/components/joint7.dae"/>
+      </geometry>
+    <origin xyz = "0.0 0 -0.012" rpy = "0 0 0"/>
+    </collision>
+    <inertial>
+      <origin xyz="0 0 -0.012" rpy = "0 0 0"/>
+      <mass value="1.0" />
+      <inertia ixx="1.04821e-03" ixy="0.0" ixz="0.0"
+               iyy="1.04821e-03" iyz="0.0"
+               izz="2.00978e-03" />
+    </inertial>
+  </link>
+
+</robot>
+

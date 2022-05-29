@@ -1,0 +1,34 @@
+ros_control_namespace: /
+controller_list:
+  - name: arm_controller
+    action_ns: mycobot_trajectory/follow_joint_trajectory
+    type: FollowJointTrajectory
+    default: true
+    joints:
+      - joint1
+      - joint2
+      - joint3
+      - joint4
+      - joint5
+      - joint6
+# hardware_interface:
+#   joints:
+#     - joint1
+#     - joint2
+#     - joint3
+#     - joint4
+#     - joint5
+#     - joint6
+# controller_manager_ns: /
+# controller_list:
+#   - name: arm_controller
+#     action_ns: follow_joint_trajectory
+#     type: FollowJointTrajectory
+#     default: True
+#     joints:
+#       - joint1
+#       - joint2
+#       - joint3
+#       - joint4
+#       - joint5
+#       - joint6

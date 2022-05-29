@@ -1,0 +1,7 @@
+<launch>
+  <include file="$(find mycobot_gazebo)/launch/mycobot_gazebo.launch"/>
+  <include file="$(find mycobot_moveit_config)/launch/move_group.launch"/>
+  <include file="$(find mycobot_moveit_config)/launch/moveit_rviz.launch">
+    <arg name="rviz_config" value="$(find mycobot_gazebo)/config/default.rviz"/>
+  </include>
+</launch>

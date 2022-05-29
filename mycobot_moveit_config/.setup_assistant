@@ -1,0 +1,11 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: mycobot_description
+    relative_path: urdf/mycobot_robot.urdf.xacro
+    xacro_args: --inorder
+  SRDF:
+    relative_path: config/mycobot.srdf
+  CONFIG:
+    author_name: ni4shi4
+    author_email: ni4shi4@gmail.com
+    generated_timestamp: 1653052857

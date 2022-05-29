@@ -1,0 +1,9 @@
+<launch>
+  <include file="$(find mycobot_controller)/launch/mycobot_controller.launch"/>
+  <!-- <include file="$(find mycobot_control)/launch/mycobot_control.launch"/> -->
+  <include file="$(find mycobot_moveit_config)/launch/move_group.launch"/>
+  <include file="$(find mycobot_moveit_config)/launch/moveit_rviz.launch">
+    <arg name="rviz_config" value="$(find mycobot_moveit_config)/config/mycobot_moveit.rviz"/>
+    <arg name="required" value="true"/>
+  </include>
+</launch>

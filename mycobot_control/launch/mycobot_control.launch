@@ -1,0 +1,28 @@
+<launch>
+  <rosparam file="$(find mycobot_control)/config/controllers.yaml" command="load"/>
+
+  <!-- <param name="robot_description" textfile="$(find mycobot_description)/urdf/mycobot_robot.urdf.xacro"/> -->
+  <include file="$(find mycobot_description)/launch/mycobot_upload.launch"/> 
+
+  <node name="mycobot_control" pkg="mycobot_control" type="mycobot_control" output="screen">
+    <rosparam file="$(find mycobot_control)/config/device_info.yaml" command="load"/>
+    <rosparam file="$(find mycobot_control)/config/hardware.yaml" command="load"/>
+  </node>
+  <!-- <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" ns="/"
+    args="/arm_controller/mycobot_state"/> -->
+  <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" ns="/"
+    args="/arm_controller/mycobot_trajectory /arm_controller/mycobot_state"/>
+  <!-- <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" ns="/"
+    args="
+      /controller/mycobot_state
+      /controller/mycobot_joint1
+      /controller/mycobot_joint2
+      /controller/mycobot_joint3
+      /controller/mycobot_joint4
+      /controller/mycobot_joint5
+      /controller/mycobot_joint6
+      /controller/mycobot_trajectory
+    "/> -->
+
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/>
+</launch>

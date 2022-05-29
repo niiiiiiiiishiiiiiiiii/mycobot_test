@@ -1,0 +1,10 @@
+<!-- "lib/" in the head is not nessesary -->
+<library path="libmycobot_hardware_interface">
+  <class name="mycobot_hardware_interface/MyCobotHW"
+    type="mycobot_hardware_interface::MyCobotHW"
+    base_class_type="hardware_interface::RobotHW">
+    <description>
+      This is a plugin for hardware_interface to interact with real mycobot.
+    </description>
+  </class>
+</library>
