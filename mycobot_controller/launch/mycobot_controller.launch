@@ -1,15 +1,15 @@
 <launch>
-  <arg name="pi" default="3.1415926"/>
+  <!-- <arg name="pi" default="3.1415926"/>
   <arg name="usb_port" default="/dev/ttyUSB0"/>
   <arg name="baud_rate" default="115200"/>
   <arg name="timeout" default="10"/>
   <arg name="eps" default="$(eval arg('pi') * 0.01)"/>
   <arg name="arm_controller_name" default="arm_controller"/>
   <arg name="control_period" default="0.050"/>
-  <arg name="use_platform" default="true"/>
+  <arg name="use_platform" default="true"/> -->
 
   <!-- mycobot controller publishing /joint_states -->
-  <node name="mycobot_controller" pkg="mycobot_controller" type="mycobot_controller.py"
+  <!-- <node name="mycobot_controller" pkg="mycobot_controller" type="mycobot_controller.py"
     output="screen" args="$(arg usb_port) $(arg baud_rate) $(arg timeout) $(arg eps)">
     <param name="control_period" value="$(arg control_period)"/>
     <param name="arm_controller_name" value="$(arg arm_controller_name)"/>
@@ -17,5 +17,10 @@
   </node>
 
   <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/>
-  <include file="$(find mycobot_description)/launch/mycobot_upload.launch"/>
+  <include file="$(find mycobot_description)/launch/mycobot_upload.launch"/> -->
+
+  <node name="mycobot_controller" pkg="mycobot_controller" type="mycobot_controller" output="screen">
+    <rosparam file="$(find mycobot_control)/config/device_info.yaml" command="load"/>
+    <rosparam file="$(find mycobot_control)/config/hardware.yaml" command="load"/>
+  </node>
 </launch>

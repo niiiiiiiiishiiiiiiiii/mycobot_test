@@ -12,6 +12,7 @@ find_package(catkin REQUIRED COMPONENTS
   controller_manager
   pluginlib
   mycobot_libs
+  moveit_msgs
   # mycobot_hardware_interface
   roscpp
 )
@@ -108,7 +109,7 @@ find_package(catkin REQUIRED COMPONENTS
 catkin_package(
   INCLUDE_DIRS include
   LIBRARIES mycobot_control
-  CATKIN_DEPENDS hardware_interface controller_manager pluginlib mycobot_libs roscpp
+  CATKIN_DEPENDS hardware_interface controller_manager pluginlib mycobot_libs moveit_msgs roscpp
   # CATKIN_DEPENDS hardware_interface controller_manager pluginlib mycobot_libs mycobot_hardware_interface roscpp 
   # DEPENDS system_lib
 )
@@ -138,6 +139,7 @@ include_directories(
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
 add_executable(mycobot_control src/mycobot_control.cpp)
+add_executable(mycobot_obstacles src/mycobot_obstacles.cpp)
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
@@ -147,10 +149,18 @@ add_executable(mycobot_control src/mycobot_control.cpp)
 
 ## Add cmake target dependencies of the executable
 ## same as for the library above
-# add_dependencies(${PROJECT_NAME}_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+add_dependencies(
+  mycobot_control ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS}
+)
+add_dependencies(
+  mycobot_obstacles ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS}
+)
 
 # Specify libraries to link a library or executable target against
 target_link_libraries(mycobot_control
+  ${catkin_LIBRARIES}
+)
+target_link_libraries(mycobot_obstacles
   ${catkin_LIBRARIES}
 )
 

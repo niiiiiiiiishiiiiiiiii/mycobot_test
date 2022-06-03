@@ -4,14 +4,16 @@
   <!-- <param name="robot_description" textfile="$(find mycobot_description)/urdf/mycobot_robot.urdf.xacro"/> -->
   <include file="$(find mycobot_description)/launch/mycobot_upload.launch"/> 
 
+  <include file="$(find mycobot_controller)/launch/mycobot_controller.launch"/> 
+
   <node name="mycobot_control" pkg="mycobot_control" type="mycobot_control" output="screen">
-    <rosparam file="$(find mycobot_control)/config/device_info.yaml" command="load"/>
+    <!-- <rosparam file="$(find mycobot_control)/config/device_info.yaml" command="load"/> -->
     <rosparam file="$(find mycobot_control)/config/hardware.yaml" command="load"/>
   </node>
-  <!-- <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" ns="/"
-    args="/arm_controller/mycobot_state"/> -->
   <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" ns="/"
-    args="/arm_controller/mycobot_trajectory /arm_controller/mycobot_state"/>
+    args="/arm_controller/mycobot_trajectory"/>
+  <!-- <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" ns="/"
+    args="/arm_controller/mycobot_trajectory /arm_controller/mycobot_state"/> -->
   <!-- <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" ns="/"
     args="
       /controller/mycobot_state

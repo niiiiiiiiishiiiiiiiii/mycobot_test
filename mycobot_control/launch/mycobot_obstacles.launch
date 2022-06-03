@@ -1,0 +1,5 @@
+<launch>
+  <node name="mycobot_obstacles" pkg="mycobot_control" type="mycobot_obstacles" output="screen">
+    <rosparam file="$(find mycobot_control)/config/obstacles.yaml" command="load"/>
+  </node>
+</launch>

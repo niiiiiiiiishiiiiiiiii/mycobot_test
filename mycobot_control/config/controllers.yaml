@@ -8,10 +8,10 @@ mycobot:
       - joint5
       - joint6
 arm_controller:
-  mycobot_state:
-    type: joint_state_controller/JointStateController
-    # publish rate may larger than (twice as large as?) spin rate of contrl
-    publish_rate: 20
+  # mycobot_state:
+  #   type: joint_state_controller/JointStateController
+  #   # publish rate may larger than (twice as large as?) spin rate of contrl
+  #   publish_rate: 2
 
   # mycobot_joint1:
   #   type: position_controllers/JointPositionController

@@ -15,12 +15,8 @@ int main(int argc, char** argv)
   ros::AsyncSpinner spinner(1);
   spinner.start();
 
-  ROS_INFO("Start creating class loader.");
   pluginlib::ClassLoader<hardware_interface::RobotHW> robot_hw_loader("mycobot_control", "hardware_interface::RobotHW");
-  ROS_INFO("End creating.");
-  ROS_INFO("Start loading MyCobotHW.");
   auto hw = robot_hw_loader.createInstance("mycobot_hardware_interface/MyCobotHW");
-  ROS_INFO("End loading.");
   
   hw->init(node_handle, private_node_handle);
   // mycobot_hardware_interface::MyCobotHW hw();
