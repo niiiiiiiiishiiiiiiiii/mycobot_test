@@ -1,6 +1,6 @@
 # mycobot_test
 
-Test libraries for ros interface of myCobot to execute the moveit
+Test libraries for ros interface of the real myCobot to execute moveit
 
 ## Dependencies
 
