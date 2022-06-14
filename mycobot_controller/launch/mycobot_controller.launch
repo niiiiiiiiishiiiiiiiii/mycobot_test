@@ -20,7 +20,7 @@
   <include file="$(find mycobot_description)/launch/mycobot_upload.launch"/> -->
 
   <node name="mycobot_controller" pkg="mycobot_controller" type="mycobot_controller" output="screen">
-    <rosparam file="$(find mycobot_control)/config/device_info.yaml" command="load"/>
-    <rosparam file="$(find mycobot_control)/config/hardware.yaml" command="load"/>
+    <rosparam file="$(find mycobot_controller)/config/device_info.yaml" command="load"/>
+    <rosparam file="$(find mycobot_controller)/config/hardware.yaml" command="load"/>
   </node>
 </launch>
