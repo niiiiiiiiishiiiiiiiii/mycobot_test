@@ -4,7 +4,7 @@
   <!-- <param name="robot_description" textfile="$(find mycobot_description)/urdf/mycobot_robot.urdf.xacro"/> -->
   <include file="$(find mycobot_description)/launch/mycobot_upload.launch"/> 
 
-  <include file="$(find mycobot_controller)/launch/mycobot_controller.launch"/> 
+  <!-- <include file="$(find mycobot_controller)/launch/mycobot_controller.launch"/>  -->
 
   <node name="mycobot_control" pkg="mycobot_control" type="mycobot_control" output="screen">
     <!-- <rosparam file="$(find mycobot_control)/config/device_info.yaml" command="load"/> -->
