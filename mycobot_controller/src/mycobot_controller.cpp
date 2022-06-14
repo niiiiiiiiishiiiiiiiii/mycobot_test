@@ -10,10 +10,10 @@ namespace mycobot_controller
     private_node_handle_("~")
   {
     // get hardware information of mycobot
-    std::string usb_port = private_node_handle_.param("mycobot_controller/usb_port", std::string("/dev/ttyUSB0"));
-    int baud_rate = private_node_handle_.param("mycobot_controller/baud_rate", 115200);
-    int timeout = private_node_handle_.param("mycobot_controller/timeout", 10);
-    int buffer_size = private_node_handle_.param("mycobot_controller/buffer_size", 200);
+    std::string usb_port = private_node_handle_.param("mycobot_device_info/usb_port", std::string("/dev/ttyUSB0"));
+    int baud_rate = private_node_handle_.param("mycobot_device_info/baud_rate", 115200);
+    int timeout = private_node_handle_.param("mycobot_device_info/timeout", 10);
+    int buffer_size = private_node_handle_.param("mycobot_device_info/buffer_size", 200);
     int speed = private_node_handle_.param("mycobot_device_info/speed", 80);
 
     // init mycobot
