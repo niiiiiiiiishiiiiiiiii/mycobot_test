@@ -107,7 +107,7 @@ find_package(catkin REQUIRED COMPONENTS
 ## CATKIN_DEPENDS: catkin_packages dependent projects also need
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
-  INCLUDE_DIRS include
+  # INCLUDE_DIRS include
   LIBRARIES mycobot_control
   CATKIN_DEPENDS hardware_interface controller_manager pluginlib mycobot_libs moveit_msgs roscpp
   # CATKIN_DEPENDS hardware_interface controller_manager pluginlib mycobot_libs mycobot_hardware_interface roscpp 
@@ -121,7 +121,7 @@ catkin_package(
 ## Specify additional locations of header files
 ## Your package locations should be listed before other locations
 include_directories(
-  include
+  # include
   ${catkin_INCLUDE_DIRS}
 )
 
