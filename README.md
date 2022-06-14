@@ -38,11 +38,11 @@ If the port is different, you should edit the parameter `mycobot_device_info/usb
 ```
 roscore
 ```
-2. run mycobot_controller
+2. run mycobot_controller (at another terminal)
 ```
 roslaunch mycobot_controller mycobot_controller.launch
 ```
-3. run moveit (and associated nodes)
+3. run moveit (and associated nodes at another terminal)
 ```
 roslaunch mycobot_control mycobot_moveit.launch
 ```
