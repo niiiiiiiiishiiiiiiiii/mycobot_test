@@ -49,6 +49,6 @@ roslaunch mycobot_control mycobot_moveit.launch
 
 ## Licence
 
-MIT License (You could ignore licenses in the files package.xml)
+MIT License (You could ignore licenses in files package.xml)
 
 https://opensource.org/licenses/mit-license.php
